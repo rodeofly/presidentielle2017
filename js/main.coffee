@@ -100,4 +100,4 @@ $ ->
   set_language("fr")
     
   $( "body" ).on "click", "#go", -> window.location.href = url
-  $( "body" ).on "click", ".question", -> $( ".explanation" ).dialog("open")
+  $( "body" ).on "click", ".question", -> window.location.href = "https://fr.wikipedia.org/wiki/M%C3%A9thode_Borda"

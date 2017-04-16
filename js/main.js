@@ -120,7 +120,7 @@
       return window.location.href = url;
     });
     return $("body").on("click", ".question", function() {
-      return $(".explanation").dialog("open");
+      return window.location.href = "https://fr.wikipedia.org/wiki/M%C3%A9thode_Borda";
     });
   });
 
