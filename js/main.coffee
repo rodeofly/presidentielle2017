@@ -1,79 +1,63 @@
 I18N =
   "app":
     "fr":
-      "explication" : "Le but de ce questionnaire n’est pas de rechercher une bonne réponse mais de vous permettre d’identifier votre attitude ainsi que des autres camarades et m’aider à mieux vous connaître et m’adapter à votre situation. Faites glisser les différentes phrases dans les cases correspondantes."
-      "Les 2 plus" : "Les 2 qui me correspondent le plus"
-      "Les 2 peu"     : "Les 2 qui me correspondent peu"
-      "Les 2 sans opinion" : "Les 2 pour lesquelles je n’ai pas d’opinion"
-      "Les 2 pas trop"    : "Les 2 qui me correspondent pas trop"
-      "les 2 pas du tout" : "Les 2 qui me correspondent pas du tout"
+      "explication" : "Donner à chaque candidat-e une note allant de 1 (candidat dont on ne veut surtout pas) à 11 (candidat préféré). Chaque note ne doit être attribuée qu'une fois"
+      
     "re":
-      "explication" : "té lé difficil pou espliké !"
-      "Les 2 plus" : "bann 2 le plus"
-      "Les 2 peu"     : "bann 2 inn bout"
-      "Les 2 sans opinion" : "bann 2 pa la ek sa !"
-      "Les 2 pas trop"    : "bann 2 pa trotro"
-      "les 2 pas du tout" : "bann 2 pa di tou"
+      "explication" : "Oté ! Donn lo kandida lo poin 1 (kandida sa lé mol) ziska 11 (kandida sa lé gadiamb). insel note insel foi !"
+     
     "uk":
-      "explication" : "The purpose of this questionnaire is not to find a good answer but to help you identify your attitude as well as other friends and help me get to know you and adapt to your situation. Drag the sentences in the corresponding frames."
-      "Les 2 plus" : "The 2 that correspond the most to me"
-      "Les 2 peu"     : "The 2 corresponding a bit to me"
-      "Les 2 sans opinion" : "The 2 whom I do not have an opinion"
-      "Les 2 pas trop"    : "The 2 who do not fit me too"
-      "les 2 pas du tout" : "The 2 that do not correspond to me at all"
+      "explication" : "Donner à chaque candidat-e une note allant de 1 (candidat dont on ne veut surtout pas) à 11 (candidat préféré). Chaque note ne doit être attribuée qu'une fois"
+
   "qsort":
     "fr":
-      1: "Arthaud"
-      2: "Dupont-Aignan"
-      3: "Le Pen"
-      4: "Asselineau"
-      5: "Fillon"
-      6: "Mélenchon"
-      7: "Lassalle"
-      8: "Cheminade"
-      9: "Macron"
-      10: "Hamon"
+      1: "Nathalie Arthaud"
+      2: "François Asselineau"
+      3: "Jacques Cheminade"
+      4: "Nicolas Dupont-Aignan"
+      5: "François Fillon"
+      6: "Benoît Hamon"
+      7: "Jean Lassalle"
+      8: "Marine Le Pen"
+      9: "Emmanuel Macron"
+      10: "Jean-Luc Mélenchon"
+      11: "Philippe Poutou"
     "re":
-      1: "Arthaud"
-      2: "Dupont-Aignan"
-      3: "Le Pen"
-      4: "Asselineau"
-      5: "Fillon"
-      6: "Mélenchon"
-      7: "Lassalle"
-      8: "Cheminade"
-      9: "Macron"
-      10: "Hamon"
+      1: "Nathalie Arthaud"
+      2: "François Asselineau"
+      3: "Jacques Cheminade"
+      4: "Nicolas Dupont-Aignan"
+      5: "François Fillon"
+      6: "Benoît Hamon"
+      7: "Jean Lassalle"
+      8: "Marine Le Pen"
+      9: "Emmanuel Macron"
+      10: "Jean-Luc Mélenchon"
+      11: "Philippe Poutou"
     "uk":
-      1: "Arthaud"
-      2: "Dupont-Aignan"
-      3: "Le Pen"
-      4: "Asselineau"
-      5: "Fillon"
-      6: "Mélenchon"
-      7: "Lassalle"
-      8: "Cheminade"
-      9: "Macron"
-      10: "Hamon"
+      1: "Nathalie Arthaud"
+      2: "François Asselineau"
+      3: "Jacques Cheminade"
+      4: "Nicolas Dupont-Aignan"
+      5: "François Fillon"
+      6: "Benoît Hamon"
+      7: "Jean Lassalle"
+      8: "Marine Le Pen"
+      9: "Emmanuel Macron"
+      10: "Jean-Luc Mélenchon"
+      11: "Philippe Poutou"
 
-
-CHOICES = 10
-IDS = [1911008042, 2060227356, 1552551457, 441796097, 1823859130, 1887310124, 377892327, 945229228, 1764134384, 1332486413]
-URL = "https://docs.google.com/forms/d/1oXe3VZp31tv28lsCEEQEGynQKHHbHHcqGRyWEfC_FV4/viewform?"
+CHOICES = 11
+IDS = [0, 1230461260, 657859686, 112920957, 847960702, 2137008777, 1089137606, 470126607, 1505200759, 1375971800, 844555006, 855634272]
+URL = "https://docs.google.com/forms/d/e/1FAIpQLSd-W4TlNjbg7n9KtQU09RiEpKz2kZI4qJpDwI3RjMMOQqKKgA/viewform?"
 
 url=""
 
 update_count = ->
-  $( ".connectedSortable" ).each -> $( this ).prevAll( "p.caption:first" ).find( ".count").html $( this ).children().length
-
   if $( "#container li" ).length is CHOICES
     i = 0
     url = URL
-    $( "#2 li" ).each  -> url+="entry.#{IDS[i++]}=#{$( this ).attr( 'data-item' )}&"
-    $( "#1 li" ).each  -> url+="entry.#{IDS[i++]}=#{$( this ).attr( 'data-item' )}&"
-    $( "#0 li" ).each  -> url+="entry.#{IDS[i++]}=#{$( this ).attr( 'data-item' )}&"
-    $( "#-1 li" ).each -> url+="entry.#{IDS[i++]}=#{$( this ).attr( 'data-item' )}&"
-    $( "#-2 li" ).each -> url+="entry.#{IDS[i++]}=#{$( this ).attr( 'data-item' )}&"
+    $( ".candidat" ).each -> url+="entry.#{$( this ).attr('data-id')}=#{CHOICES-i++}&"    
     $( "#origin" ).before "<button id='go' data-url='#{url}'>Go</button>"
   else $( "#go" ).remove()
 
@@ -88,15 +72,10 @@ $ ->
       .dialog()
       
     for i in [1..CHOICES]
-      $( "#origin" ).append "<li class='ui-state-default' data-item='#{i}'>#{qsort[i]}</li>"
+      $( "#origin" ).append "<li class='ui-state-default candidat' data-id='#{IDS[i]}'>#{qsort[i]}</li>"
    
-    c = [2, 1, 0, -1, -2]
-    n = [2, 2, 2, 2, 2 ] 
-    t = [app["Les 2 plus"], app["Les 2 peu"], app["Les 2 sans opinion"], app["Les 2 pas trop"], app["les 2 pas du tout"]]   
-   
-    for i in [0..4]
-      html = "<p class='caption'>#{t[i]} (<span class='count'>0</span>/#{n[i]})</p><ul id='#{c[i]}' class='connectedSortable destination' data-coeff='#{c[i]}' data-max='#{n[i]}'></ul>"
-      $( "#container" ).append html
+    html = "<p class='caption'><h1>Classement :</h1><ul id='destination' class='connectedSortable destination'></ul></p>"
+    $( "#container" ).append html
     
     $( "#langage" )
       .selectmenu()
@@ -114,13 +93,9 @@ $ ->
     $( "#origin" ).sortable
       receive: (event, ui) -> update_count()
       
-    $( ".destination" ).sortable
-      receive: (event, ui) ->
-        m = parseInt $(this).attr("data-max")
-        if ($(this).children().length > m )
-          alert "Attention #{m} max ! Liberez en un avant !"
-          $(ui.sender).sortable('cancel')
-        update_count()
+    $( "#destination" ).sortable
+      receive: (event, ui) -> update_count()
+      stop: (event, ui) -> update_count()
       
   set_language("fr")
     
